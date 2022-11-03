@@ -1,4 +1,4 @@
-import React, { useState } from "react"; 
+import React, { useState } from "react";
 import { StatusBar } from "expo-status-bar";
 import Icon from "react-native-vector-icons/MaterialIcons";
 import {
@@ -9,74 +9,104 @@ import {
   SafeAreaView,
   Image,
   FlatList,
-  Alert,
-  Modal,
 } from "react-native";
 
 const UserImage = { uri: "https://reactjs.org/logo-og.png" }; //User Picture
 
-const PeopleImage = {
-  uri: "https://i.picsum.photos/id/20/200/200.jpg?hmac=wHmtG3BEC6aOsGZU_Q2wnxVQq34B__t4x4LFw-sptM8",
-}; //People Image
-
 export default function HomeScreen({ navigation }) {
   const [messages, setmessages] = useState([
     {
+      img: {
+        uri: "https://i.picsum.photos/id/20/200/200.jpg?hmac=wHmtG3BEC6aOsGZU_Q2wnxVQq34B__t4x4LFw-sptM8",
+      },
       name: "Gaston Collazo",
       MessagesHour: "8:30",
       Description: "Hello World",
     },
     {
+      img: {
+        uri: "https://i.picsum.photos/id/866/200/300.jpg?hmac=rcadCENKh4rD6MAp6V_ma-AyWv641M4iiOpe1RyFHeI",
+      },
       name: "Juan Pablo Stekl",
       MessagesHour: "10:10",
       Description: "World Hello",
     },
     {
+      img: {
+        uri: "https://i.picsum.photos/id/807/200/300.jpg?hmac=9ZZk1Nj28qIecGuVvozSN7I4LW0zotTPqeYfdGR3YdE",
+      },
       name: "Seba Salgado",
       MessagesHour: "5:23",
       Description: "Hello Hello",
     },
     {
+      img: {
+        uri: "https://i.picsum.photos/id/249/200/300.jpg?hmac=HXJz3fKmXquFNHrfyd1yRHUYx9SheA_j2gbbya_4mlA",
+      },
       name: "Mati Fernandez",
       MessagesHour: "2:30",
       Description: "Hello World 2",
     },
     {
+      img: {
+        uri: "https://i.picsum.photos/id/20/200/200.jpg?hmac=wHmtG3BEC6aOsGZU_Q2wnxVQq34B__t4x4LFw-sptM8",
+      },
       name: "Gaston Collazo",
       MessagesHour: "8:30",
       Description: "Hello World",
     },
     {
+      img: {
+        uri: "https://i.picsum.photos/id/866/200/300.jpg?hmac=rcadCENKh4rD6MAp6V_ma-AyWv641M4iiOpe1RyFHeI",
+      },
       name: "Juan Pablo Stekl",
       MessagesHour: "10:10",
       Description: "World Hello",
     },
     {
+      img: {
+        uri: "https://i.picsum.photos/id/807/200/300.jpg?hmac=9ZZk1Nj28qIecGuVvozSN7I4LW0zotTPqeYfdGR3YdE",
+      },
       name: "Seba Salgado",
       MessagesHour: "5:23",
       Description: "Hello Hello",
     },
     {
+      img: {
+        uri: "https://i.picsum.photos/id/249/200/300.jpg?hmac=HXJz3fKmXquFNHrfyd1yRHUYx9SheA_j2gbbya_4mlA",
+      },
       name: "Mati Fernandez",
       MessagesHour: "2:30",
       Description: "Hello World 2",
     },
     {
+      img: {
+        uri: "https://i.picsum.photos/id/20/200/200.jpg?hmac=wHmtG3BEC6aOsGZU_Q2wnxVQq34B__t4x4LFw-sptM8",
+      },
       name: "Gaston Collazo",
       MessagesHour: "8:30",
       Description: "Hello World",
     },
     {
+      img: {
+        uri: "https://i.picsum.photos/id/866/200/300.jpg?hmac=rcadCENKh4rD6MAp6V_ma-AyWv641M4iiOpe1RyFHeI",
+      },
       name: "Juan Pablo Stekl",
       MessagesHour: "10:10",
       Description: "World Hello",
     },
     {
+      img: {
+        uri: "https://i.picsum.photos/id/807/200/300.jpg?hmac=9ZZk1Nj28qIecGuVvozSN7I4LW0zotTPqeYfdGR3YdE",
+      },
       name: "Seba Salgado",
       MessagesHour: "5:23",
       Description: "Hello Hello",
     },
     {
+      img: {
+        uri: "https://i.picsum.photos/id/249/200/300.jpg?hmac=HXJz3fKmXquFNHrfyd1yRHUYx9SheA_j2gbbya_4mlA",
+      },
       name: "Mati Fernandez",
       MessagesHour: "2:30",
       Description: "Hello World 2",
@@ -87,7 +117,7 @@ export default function HomeScreen({ navigation }) {
     return (
       <View style={styles.ListMessages}>
         <Image
-          source={PeopleImage}
+          source={messages?.img}
           style={{ width: 60, height: 60, borderRadius: 30, marginRight: 10 }}
         />
         <View style={styles.Container}>
@@ -131,7 +161,7 @@ export default function HomeScreen({ navigation }) {
         <TouchableOpacity onPress={() => navigation.navigate("Settings")}>
           <Icon name="settings" size={40} color={"#fff"} />
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate("Add")}>
+        <TouchableOpacity onPress={() => navigation.navigate("Add Chat")}>
           <Icon name="add" size={40} color={"#fff"} />
         </TouchableOpacity>
         <TouchableOpacity onPress={() => navigation.navigate("Edit")}>
@@ -181,6 +211,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     borderTopWidth: StyleSheet.hairlineWidth,
     borderBottomWidth: StyleSheet.hairlineWidth,
+    borderColor: "grey",
   },
   Container: {
     flex: 1,

@@ -1,4 +1,3 @@
-import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
 import Icon from "react-native-vector-icons/MaterialIcons";
 import {
@@ -13,29 +12,48 @@ import {
   Modal,
   TextInput,
   Button,
+  KeyboardAvoidingView,
 } from "react-native";
 
 export default function Add({ navigation }) {
   return (
-    <SafeAreaView style={styles.container}>
-      <View>
+    <KeyboardAvoidingView style={styles.container} behavior="padding">
+      <View style={styles.InputContainer}>
         <TextInput placeholder="Nombre" style={styles.input} />
+        <TextInput placeholder="Codigo de Usuario" style={styles.input} />
+        <TouchableOpacity title="Add to Chats" style={styles.button}>
+          <Text style={styles.buttonText}>Add to Chats</Text>
+        </TouchableOpacity>
       </View>
-      <Button title="button" />
-    </SafeAreaView>
+    </KeyboardAvoidingView>
   ); //APP Container
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#D6D6D6",
+    backgroundColor: "#fff",
+    justifyContent: "center",
+  },
+  InputContainer: {
+    alignItems: "center",
   },
   input: {
-    backgroundColor: "red",
-    width: 190,
+    backgroundColor: "#D6D6D6",
+    width: "80%",
     height: 50,
-    margin: 10,
-    borderWidth: 1,
+    marginTop: 10,
+    borderRadius: 10,
+    padding: 10,
+  },
+  button: {
+    width: "70%",
+    height: 50,
+    marginTop: 10,
+    backgroundColor: "#00B6C8",
+    borderRadius: 10,
+    padding: 10,
+    alignItems: "center",
+    justifyContent: "center",
   },
 }); //StyleSheet

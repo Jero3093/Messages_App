@@ -35,7 +35,7 @@ export default function Settings({ navigation }) {
       name: "Previsulizar",
     },
     {
-      name: "Resatablecer Notificaciónes",
+      name: "Restablecer Notificaciónes",
     },
   ]); //JSON Settings
 
@@ -53,7 +53,7 @@ export default function Settings({ navigation }) {
         />
       </View>
     );
-  };
+  }; //ListMessages
 
   return (
     <SafeAreaView style={styles.container}>
@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
   Setting: {
     alignItems: "center",
     flexDirection: "row",
-    justifyContent: "space-around",
+    justifyContent: "space-between",
     backgroundColor: "#8FD2D8",
     borderTopWidth: StyleSheet.hairlineWidth,
     borderBottomWidth: StyleSheet.hairlineWidth,
