@@ -182,7 +182,7 @@ export default function HomeScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#8FD2D8",
+    backgroundColor: "transparent",
   },
   TopBarContainer: {
     position: "absolute",
@@ -202,12 +202,12 @@ const styles = StyleSheet.create({
   },
   FlatList: {
     marginTop: 115,
-    backgroundColor: "#8FD2D8",
-    height: "85%",
+    backgroundColor: "#fff",
+    height: "100%",
   },
   ListMessages: {
     padding: 15,
-    backgroundColor: "#8FD2D8",
+    backgroundColor: "#fff",
     flexDirection: "row",
     borderTopWidth: StyleSheet.hairlineWidth,
     borderBottomWidth: StyleSheet.hairlineWidth,

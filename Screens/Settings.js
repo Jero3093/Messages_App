@@ -72,7 +72,7 @@ export default function Settings({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#8FD2D8",
+    backgroundColor: "#fff",
   },
   SettingsName: {
     fontSize: 18,
@@ -82,23 +82,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     flexDirection: "row",
     justifyContent: "space-between",
-    backgroundColor: "#8FD2D8",
+    backgroundColor: "#fff",
     borderTopWidth: StyleSheet.hairlineWidth,
     borderBottomWidth: StyleSheet.hairlineWidth,
     padding: 20,
-  },
-  SettingsUserContainer: {
-    alignItems: "center",
-    flexDirection: "row",
-    justifyContent: "space-around",
-    backgroundColor: "#8FD2D8",
-    borderTopWidth: StyleSheet.hairlineWidth,
-    borderBottomWidth: StyleSheet.hairlineWidth,
-    padding: 20,
-    marginTop: 35,
-  },
-  SettingsUser: {
-    fontSize: 18,
-    fontWeight: "bold",
   },
 }); //StyleSheet
