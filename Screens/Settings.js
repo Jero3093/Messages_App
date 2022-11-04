@@ -65,11 +65,6 @@ export default function Settings({ navigation }) {
           renderItem={({ item }) => <ListSettings Setting={item} />}
         />
       </View>
-      <TouchableOpacity onPress={() => navigation.navigate("Edit User")}>
-        <View style={styles.SettingsUserContainer}>
-          <Text style={styles.SettingsUser}>Configurar Usuario</Text>
-        </View>
-      </TouchableOpacity>
     </SafeAreaView> //APP Container
   );
 }

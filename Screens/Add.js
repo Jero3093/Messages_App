@@ -1,29 +1,51 @@
 import React, { useState } from "react";
-import Icon from "react-native-vector-icons/MaterialIcons";
 import {
   StyleSheet,
   Text,
   View,
   TouchableOpacity,
-  SafeAreaView,
-  Image,
-  FlatList,
   Alert,
-  Modal,
   TextInput,
-  Button,
   KeyboardAvoidingView,
 } from "react-native";
 
 export default function Add({ navigation }) {
+  const authAdd = () => {
+    if (authValue == "") {
+      Alert.alert("Error", "Please enter a value");
+    } else {
+      const values = {
+        CodeValue: authValue,
+      };
+      setCodevalues([...Codevalues, values]);
+      setauthValue("");
+      Alert.alert("Contact added to Chats", "Please go to Chats and Check");
+    }
+  }; //Authentication to Add Contact
+
+  const [authValue, setauthValue] = useState(); //Authentication Values
+
+  const [Codevalues, setCodevalues] = useState([]); //Contact Code Value
+
   return (
     <KeyboardAvoidingView style={styles.container} behavior="padding">
       <View style={styles.InputContainer}>
-        <TextInput placeholder="Nombre" style={styles.input} />
-        <TextInput placeholder="Codigo de Usuario" style={styles.input} />
-        <TouchableOpacity title="Add to Chats" style={styles.button}>
+        <TextInput
+          placeholder="User Code"
+          style={styles.input}
+          value={authValue}
+          onChangeText={(textCode) => setauthValue(textCode)}
+        />
+        <TouchableOpacity
+          title="Add to Chats"
+          style={styles.button}
+          onPress={authAdd}
+        >
           <Text style={styles.buttonText}>Add to Chats</Text>
         </TouchableOpacity>
+        <View style={styles.CodeContainer}>
+          <Text style={styles.Code}>Your Code is: isn738fdn2</Text>
+        </View>
       </View>
     </KeyboardAvoidingView>
   ); //APP Container
@@ -55,5 +77,10 @@ const styles = StyleSheet.create({
     padding: 10,
     alignItems: "center",
     justifyContent: "center",
+  },
+  Code: {
+    color: "blacK",
+    fontSize: 20,
+    marginTop: 35,
   },
 }); //StyleSheet
