@@ -20,11 +20,11 @@ const MyStack = () => {
           headerTintColor: "black",
         }}
       >
+        <Stack.Screen name="Login" component={Login} options={{headerShown: false}} />
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Edit" component={EditScreen} />
         <Stack.Screen name="Settings" component={Settings} />
         <Stack.Screen name="Add Chat" component={Add} />
-        <Stack.Screen name="Login" component={Login} options={{headerShown: false}} />
       </Stack.Navigator>
     </NavigationContainer>
   );
