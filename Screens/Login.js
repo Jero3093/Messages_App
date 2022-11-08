@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   StyleSheet,
   Text,
@@ -8,6 +8,7 @@ import {
   Image,
 } from "react-native";
 import { TextInput } from "react-native-gesture-handler";
+import { auth } from "../firebase";
 
 const TopImage = {
   uri: "https://cdn-icons-png.flaticon.com/512/1041/1041916.png",
@@ -17,6 +18,29 @@ export default function Login({ navigation }) {
   const [Email, setEmail] = useState(""); //Emails
 
   const [Password, setPassword] = useState(""); //Passwords
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (user) {
+        navigation.navigate("Home");
+      }
+    });
+    return unsubscribe;
+  }, []);
+
+  const handleSignUp = () => {
+    auth
+      .createUserWithEmailAndPassword(Email, Password)
+      .then((UserCredentials) => {
+        const user = UserCredentials.user;
+      });
+  }; //Funcion de Registro de Usuario
+
+  const handleLogin = () => {
+    auth.signInWithEmailAndPassword(Email, Password).then((UserCredentials) => {
+      const user = UserCredentials.user;
+    });
+  }; //Funcion de Login de Usuario
 
   return (
     <KeyboardAvoidingView style={styles.container} behavior={"padding"}>
@@ -40,11 +64,11 @@ export default function Login({ navigation }) {
           />
         </View>
         <View style={styles.ButtonContainer}>
-          <TouchableOpacity onPress={() => {}} style={styles.button}>
+          <TouchableOpacity onPress={handleLogin} style={styles.button}>
             <Text style={styles.buttonText}>Login</Text>
           </TouchableOpacity>
           <TouchableOpacity
-            onPress={() => {}}
+            onPress={handleSignUp}
             style={[styles.button, styles.buttonOutLine]}
           >
             <Text style={styles.buttonOutLineText}>Register</Text>
@@ -103,7 +127,7 @@ const styles = StyleSheet.create({
   buttonOutLine: {
     backgroundColor: "#fff",
     marginTop: 5,
-    borderColor: "#00FF7C",
+    borderColor: "#00CB3D",
     borderWidth: 2,
   },
   buttonText: {
@@ -112,7 +136,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   buttonOutLineText: {
-    color: "#00FF7C",
+    color: "#00CB3D",
     fontWeight: "bold",
     fontSize: 16,
   },

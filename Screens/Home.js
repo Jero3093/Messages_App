@@ -203,7 +203,7 @@ const styles = StyleSheet.create({
   FlatList: {
     marginTop: 115,
     backgroundColor: "#fff",
-    height: "100%",
+    height: "89%",
   },
   ListMessages: {
     padding: 15,
