@@ -1,13 +1,11 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
-import Icon from "react-native-vector-icons/MaterialIcons";
 import {
   StyleSheet,
   Text,
   View,
   TouchableOpacity,
   SafeAreaView,
-  Image,
   FlatList,
   Alert,
   Modal,
@@ -86,5 +84,23 @@ const styles = StyleSheet.create({
     borderTopWidth: StyleSheet.hairlineWidth,
     borderBottomWidth: StyleSheet.hairlineWidth,
     padding: 20,
+  },
+  LogOutContainer: {
+    backgroundColor: "white",
+    borderWidth: 2,
+    borderColor: "red",
+    width: "80%",
+    height: 70,
+    borderRadius: 10,
+    justifyContent: "center",
+    alignSelf: "center",
+    position: "absolute",
+    bottom: 120,
+    alignItems: "center",
+  },
+  LogOutText: {
+    color: "red",
+    fontSize: 20,
+    fontWeight: "700",
   },
 }); //StyleSheet

@@ -16,7 +16,7 @@ const MyStack = () => {
     <NavigationContainer>
       <Stack.Navigator
         screenOptions={{
-          headerStyle: { backgroundColor: "#00B6C8" },
+          headerStyle: { backgroundColor: "#5a86fd" },
           headerTintColor: "black",
         }}
       >

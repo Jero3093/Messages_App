@@ -6,9 +6,11 @@ import {
   TouchableOpacity,
   KeyboardAvoidingView,
   Image,
+  Alert,
 } from "react-native";
 import { TextInput } from "react-native-gesture-handler";
 import { auth } from "../firebase";
+
 
 const TopImage = {
   uri: "https://cdn-icons-png.flaticon.com/512/1041/1041916.png",
@@ -22,7 +24,7 @@ export default function Login({ navigation }) {
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
-        navigation.navigate("Home");
+        navigation.replace("Home");
       }
     });
     return unsubscribe;
@@ -34,6 +36,7 @@ export default function Login({ navigation }) {
       .then((UserCredentials) => {
         const user = UserCredentials.user;
       });
+      Alert.alert("Check","Register Success")
   }; //Funcion de Registro de Usuario
 
   const handleLogin = () => {

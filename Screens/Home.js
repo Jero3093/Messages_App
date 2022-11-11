@@ -186,7 +186,7 @@ const styles = StyleSheet.create({
   },
   TopBarContainer: {
     position: "absolute",
-    backgroundColor: "#00B6C8",
+    backgroundColor: "#5a86fd",
     top: 0,
     width: "100%",
     height: 120,
@@ -203,7 +203,7 @@ const styles = StyleSheet.create({
   FlatList: {
     marginTop: 115,
     backgroundColor: "#fff",
-    height: "89%",
+    height: "90%",
   },
   ListMessages: {
     padding: 15,
