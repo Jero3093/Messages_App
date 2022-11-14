@@ -11,10 +11,14 @@ import {
   FlatList,
   Alert,
   Modal,
+  KeyboardAvoidingView,
 } from "react-native";
 
-export default function User({ navigation }) {
-  return <SafeAreaView style={styles.container}></SafeAreaView>; //APP Container
+export default function Chat({ navigation }) {
+  return 
+  <KeyboardAvoidingView style={styles.container}>
+    
+  </KeyboardAvoidingView>; //APP Container
 }
 
 const styles = StyleSheet.create({

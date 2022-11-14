@@ -115,7 +115,7 @@ export default function HomeScreen({ navigation }) {
 
   const ListMessages = ({ messages }) => {
     return (
-      <View style={styles.ListMessages}>
+      <TouchableOpacity style={styles.ListMessages} onPress={() => navigation.navigate("Chat")}>
         <Image
           source={messages?.img}
           style={{ width: 60, height: 60, borderRadius: 30, marginRight: 10 }}
@@ -149,7 +149,7 @@ export default function HomeScreen({ navigation }) {
             </Text>
           </View>
         </View>
-      </View>
+      </TouchableOpacity>
     );
   }; //ListMessages
 
