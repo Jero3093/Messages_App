@@ -115,7 +115,10 @@ export default function HomeScreen({ navigation }) {
 
   const ListMessages = ({ messages }) => {
     return (
-      <TouchableOpacity style={styles.ListMessages} onPress={() => navigation.navigate("Chat")}>
+      <TouchableOpacity
+        style={styles.ListMessages}
+        onPress={() => navigation.navigate("Chat")}
+      >
         <Image
           source={messages?.img}
           style={{ width: 60, height: 60, borderRadius: 30, marginRight: 10 }}
