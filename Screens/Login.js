@@ -10,11 +10,7 @@ import {
 } from "react-native";
 import { TextInput } from "react-native-gesture-handler";
 import { auth } from "../firebase";
-
-
-const TopImage = {
-  uri: "https://cdn-icons-png.flaticon.com/512/1041/1041916.png",
-}; //Top Container Image
+import TopImage from "../assets/icon.png";
 
 export default function Login({ navigation }) {
   const [Email, setEmail] = useState(""); //Emails
@@ -31,18 +27,28 @@ export default function Login({ navigation }) {
   }, []);
 
   const handleSignUp = () => {
-    auth
-      .createUserWithEmailAndPassword(Email, Password)
-      .then((UserCredentials) => {
-        const user = UserCredentials.user;
-      });
-      Alert.alert("Check","Register Success")
+    if ((Email, Password === "")) {
+      Alert.alert("Error al Registrar", "Ingrese Datos para el Registro");
+    } else {
+      auth
+        .createUserWithEmailAndPassword(Email, Password)
+        .then((UserCredentials) => {
+          const user = UserCredentials.user;
+        });
+      Alert.alert("Check", "Register Success");
+    }
   }; //Funcion de Registro de Usuario
 
   const handleLogin = () => {
-    auth.signInWithEmailAndPassword(Email, Password).then((UserCredentials) => {
-      const user = UserCredentials.user;
-    });
+    if ((Email, Password === "")) {
+      Alert.alert("Error", "Debe registrar el Usuario");
+    } else {
+      auth
+        .signInWithEmailAndPassword(Email, Password)
+        .then((UserCredentials) => {
+          const user = UserCredentials.user;
+        });
+    }
   }; //Funcion de Login de Usuario
 
   return (

@@ -49,7 +49,7 @@ export default function Chat({ navigation }) {
     );
   }; //List Chat Messages Container
 
-  const addMsg = () => {
+  const AddMsg = () => {
     if (textInput == "") {
       Alert.alert("Error al Enviar", "Escriba el Mensaje");
     } else {
@@ -65,11 +65,11 @@ export default function Chat({ navigation }) {
     <KeyboardAvoidingView style={styles.container} behavior={"height"}>
       <TopBarContainer />
       <View style={styles.FlatListContainer}>
-      <FlatList
-        showsVerticalScrollIndicator={false}
-        data={msg}
-        renderItem={({ item }) => <ListChatMessages msg={item} />}
-      />
+        <FlatList
+          showsVerticalScrollIndicator={false}
+          data={msg}
+          renderItem={({ item }) => <ListChatMessages msg={item} />}
+        />
       </View>
       <View style={styles.Footer}>
         <TextInput
@@ -78,7 +78,7 @@ export default function Chat({ navigation }) {
           value={textInput}
           onChangeText={(text) => settextInput(text)}
         />
-        <TouchableOpacity onPress={addMsg}>
+        <TouchableOpacity onPress={AddMsg}>
           <Entypo name="upload" color={"white"} size={25} />
         </TouchableOpacity>
       </View>
@@ -133,25 +133,26 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
   },
   FooterInput: {
-    borderWidth: 1,
-    width: "60%",
+    borderWidth: 2,
+    width: "65%",
     height: 40,
     borderRadius: "50%",
     padding: 10,
-    backgroundColor: "grey",
+    backgroundColor: "#fff",
   },
   FlatListContainer: {
     width: "100%",
     height: "78%",
   },
   ChatMsg: {
-    backgroundColor: "lightgreen",
+    backgroundColor: "#67FF8E",
     marginBottom: 10,
     padding: 10,
-    width: "70%",
     borderRadius: "10%",
+    marginLeft: "auto",
+    alignContent: "stretch",
   },
   ChatMsgText: {
-    fontSize: 20,
+    fontSize: 16,
   },
 }); //StyleSheet
