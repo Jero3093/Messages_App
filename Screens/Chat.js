@@ -43,9 +43,14 @@ export default function Chat({ navigation }) {
 
   const ListChatMessages = ({ msg }) => {
     return (
-      <View style={styles.ChatMsg}>
-        <Text style={styles.ChatMsgText}>{msg?.content}</Text>
-      </View>
+      <>
+        <View style={styles.ChatMsg}>
+          <Text style={styles.ChatMsgText}>{msg?.content}</Text>
+        </View>
+        <View style={styles.ChatMsgOther}>
+          <Text style={styles.ChatMsgText}>{msg?.content}</Text>
+        </View>
+      </>
     );
   }; //List Chat Messages Container
 
@@ -145,8 +150,9 @@ const styles = StyleSheet.create({
   },
   ChatMsg: {
     backgroundColor: "#67FF8E",
-    marginBottom: 10,
+    maxWidth: 310,
     padding: 10,
+    marginBottom: 10,
     marginLeft: "auto",
     alignContent: "stretch",
     borderTopLeftRadius: 10,
@@ -156,4 +162,15 @@ const styles = StyleSheet.create({
   ChatMsgText: {
     fontSize: 16,
   },
+  ChatMsgOther: {
+    backgroundColor: "grey",
+    maxWidth: 310,
+    padding: 10,
+    marginBottom: 10,
+    marginRight: "auto",
+    alignContent: "stretch",
+    borderTopRightRadius: 10,
+    borderBottomRightRadius: 10,
+    borderTopLeftRadius: 10,
+  }
 }); //StyleSheet
