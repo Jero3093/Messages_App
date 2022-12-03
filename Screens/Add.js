@@ -12,18 +12,18 @@ import {
 export default function Add({ navigation }) {
   const authAdd = () => {
     if (authValue == "") {
-      Alert.alert("Error", "Please enter a value");
+      Alert.alert("Error", "Debe introducir un Codigo");
     } else {
       const values = {
         CodeValue: authValue,
       };
       setCodevalues([...Codevalues, values]);
       setauthValue("");
-      Alert.alert("Contact added to Chats", "Please go to Chats and Check");
+      Alert.alert("Exito", "El Contacto fue Agregado");
     }
   }; //Authentication to Add Contact
 
-  const [authValue, setauthValue] = useState(); //Authentication Values
+  const [authValue, setauthValue] = useState([]); //Authentication Values
 
   const [Codevalues, setCodevalues] = useState([]); //Contact Code Value
 
@@ -43,9 +43,7 @@ export default function Add({ navigation }) {
         >
           <Text style={styles.buttonText}>Add to Chats</Text>
         </TouchableOpacity>
-        <View style={styles.CodeContainer}>
           <Text style={styles.Code}>Your Code is: isn738fdn2</Text>
-        </View>
       </View>
     </KeyboardAvoidingView>
   ); //APP Container
@@ -77,6 +75,9 @@ const styles = StyleSheet.create({
     padding: 10,
     alignItems: "center",
     justifyContent: "center",
+  },
+  buttonText: {
+    fontSize: 16,
   },
   Code: {
     color: "blacK",

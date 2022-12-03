@@ -32,7 +32,7 @@ const MyStack = () => {
         />
         <Stack.Screen name="Edit" component={EditScreen} />
         <Stack.Screen name="Settings" component={Settings} />
-        <Stack.Screen name="Add Chat" component={Add} />
+        <Stack.Screen name="Add Contact" component={Add} />
         <Stack.Screen
           name="Chat"
           component={Chat}

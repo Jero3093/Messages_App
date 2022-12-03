@@ -10,8 +10,7 @@ import {
   Image,
   FlatList,
 } from "react-native";
-
-const UserImage = { uri: "https://reactjs.org/logo-og.png" }; //User Picture
+import UserImg from "../assets/UserIMG.png";
 
 export default function HomeScreen({ navigation }) {
   const [messages, setmessages] = useState([
@@ -51,7 +50,7 @@ export default function HomeScreen({ navigation }) {
       img: {
         uri: "https://i.picsum.photos/id/20/200/200.jpg?hmac=wHmtG3BEC6aOsGZU_Q2wnxVQq34B__t4x4LFw-sptM8",
       },
-      name: "Gaston Collazo",
+      name: "Ramon Fuentes",
       MessagesHour: "8:30",
       Description: "Hello World",
     },
@@ -160,11 +159,11 @@ export default function HomeScreen({ navigation }) {
     <SafeAreaView style={styles.container}>
       <StatusBar style="auto" />
       <View style={styles.TopBarContainer}>
-        <Image source={UserImage} style={styles.TopBarImg} />
+        <Image source={UserImg} style={styles.TopBarImg} />
         <TouchableOpacity onPress={() => navigation.navigate("Settings")}>
           <Icon name="settings" size={40} color={"#fff"} />
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate("Add Chat")}>
+        <TouchableOpacity onPress={() => navigation.navigate("Add Contact")}>
           <Icon name="add" size={40} color={"#fff"} />
         </TouchableOpacity>
         <TouchableOpacity onPress={() => navigation.navigate("Edit")}>

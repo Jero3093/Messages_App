@@ -1,14 +1,10 @@
-import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
 import {
   StyleSheet,
   Text,
   View,
-  TouchableOpacity,
   SafeAreaView,
   FlatList,
-  Alert,
-  Modal,
   Switch,
 } from "react-native";
 
@@ -55,7 +51,6 @@ export default function Settings({ navigation }) {
 
   return (
     <SafeAreaView style={styles.container}>
-      <StatusBar barStyle="auto" />
       <View style={styles.SettinsContainer}>
         <FlatList
           showsVerticalScrollIndicator={false}
@@ -72,10 +67,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#fff",
   },
-  SettingsName: {
-    fontSize: 18,
-    fontWeight: "bold",
-  },
   Setting: {
     alignItems: "center",
     flexDirection: "row",
@@ -84,23 +75,10 @@ const styles = StyleSheet.create({
     borderTopWidth: StyleSheet.hairlineWidth,
     borderBottomWidth: StyleSheet.hairlineWidth,
     padding: 20,
+    marginVertical: 10,
   },
-  LogOutContainer: {
-    backgroundColor: "white",
-    borderWidth: 2,
-    borderColor: "red",
-    width: "80%",
-    height: 70,
-    borderRadius: 10,
-    justifyContent: "center",
-    alignSelf: "center",
-    position: "absolute",
-    bottom: 120,
-    alignItems: "center",
-  },
-  LogOutText: {
-    color: "red",
-    fontSize: 20,
-    fontWeight: "700",
+  SettingsName: {
+    fontSize: 18,
+    fontWeight: "bold",
   },
 }); //StyleSheet
