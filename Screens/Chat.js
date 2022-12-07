@@ -11,15 +11,13 @@ import {
   Alert,
 } from "react-native";
 import { Entypo } from "@expo/vector-icons";
+import { AntDesign } from "@expo/vector-icons";
+import * as users from "../data.json";//Users JSON
 
 export default function Chat({ navigation }) {
   const [msg, setmsg] = useState([]); //Messages Values
 
   const [textInput, settextInput] = useState(); //Text Input Values
-
-  const UserImg = {
-    uri: "https://i.picsum.photos/id/20/200/200.jpg?hmac=wHmtG3BEC6aOsGZU_Q2wnxVQq34B__t4x4LFw-sptM8",
-  }; //User Image
 
   const TopBarContainer = () => {
     return (
@@ -28,9 +26,9 @@ export default function Chat({ navigation }) {
           <Entypo name="chevron-thin-left" size={35} />
         </TouchableOpacity>
         <View style={styles.TopBarContent}>
-          <Image source={UserImg} style={styles.TopBarImg} />
+          <Image source={users?.img} style={styles.TopBarImg} />
           <Text style={{ fontSize: 25 }} numberOfLines={1}>
-            Gaston Collazo
+            {users?.name}
           </Text>
         </View>
         <View style={styles.TopBarButtons}>
@@ -48,7 +46,7 @@ export default function Chat({ navigation }) {
           <Text style={styles.ChatMsgText}>{msg?.content}</Text>
         </View>
         <View style={styles.ChatMsgOther}>
-          <Text style={styles.ChatMsgText}>{msg?.content}</Text>
+          <Text style={styles.ChatMsgText}>{users?.Description}</Text>
         </View>
       </>
     );
@@ -84,7 +82,7 @@ export default function Chat({ navigation }) {
           onChangeText={(text) => settextInput(text)}
         />
         <TouchableOpacity onPress={AddMsg}>
-          <Entypo name="upload" color={"white"} size={25} />
+          <AntDesign name="arrowup" size={35} color="#fff" />
         </TouchableOpacity>
       </View>
     </KeyboardAvoidingView>
@@ -123,12 +121,7 @@ const styles = StyleSheet.create({
   TopBarIcon: {
     marginRight: 15,
   },
-  ListChatMsg: {
-    width: "100%",
-  },
   Footer: {
-    position: "absolute",
-    bottom: 0,
     backgroundColor: "#5a86fd",
     width: "100%",
     height: 80,
@@ -136,17 +129,19 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-evenly",
     paddingBottom: 10,
+    marginTop: "auto",
   },
   FooterInput: {
+    backgroundColor: "#fff",
     borderWidth: 2,
     width: "65%",
     height: 40,
     padding: 10,
-    backgroundColor: "#fff",
+    borderRadius: 15,
   },
   FlatListContainer: {
     width: "100%",
-    height: "78%",
+    height: "88%",
   },
   ChatMsg: {
     backgroundColor: "#67FF8E",
@@ -172,5 +167,5 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 10,
     borderBottomRightRadius: 10,
     borderTopLeftRadius: 10,
-  }
+  },
 }); //StyleSheet
