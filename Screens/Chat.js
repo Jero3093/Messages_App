@@ -12,23 +12,23 @@ import {
 } from "react-native";
 import { Entypo } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
-import * as users from "../data.json";//Users JSON
+import { UserData } from "../data.js"; //Users JSON
 
 export default function Chat({ navigation }) {
   const [msg, setmsg] = useState([]); //Messages Values
 
   const [textInput, settextInput] = useState(); //Text Input Values
 
-  const TopBarContainer = () => {
+  const TopBarContainer = ({UserData}) => {
     return (
       <View style={styles.TopBarContainer}>
         <TouchableOpacity onPress={() => navigation.navigate("Home")}>
           <Entypo name="chevron-thin-left" size={35} />
         </TouchableOpacity>
         <View style={styles.TopBarContent}>
-          <Image source={users?.img} style={styles.TopBarImg} />
+          <Image source={UserData?.img} style={styles.TopBarImg} />
           <Text style={{ fontSize: 25 }} numberOfLines={1}>
-            {users?.name}
+            {UserData?.name}
           </Text>
         </View>
         <View style={styles.TopBarButtons}>
@@ -37,7 +37,7 @@ export default function Chat({ navigation }) {
         </View>
       </View>
     );
-  }; //Top Bar Container
+  }; //TopBar Container
 
   const ListChatMessages = ({ msg }) => {
     return (
@@ -46,14 +46,14 @@ export default function Chat({ navigation }) {
           <Text style={styles.ChatMsgText}>{msg?.content}</Text>
         </View>
         <View style={styles.ChatMsgOther}>
-          <Text style={styles.ChatMsgText}>{users?.Description}</Text>
+          <Text style={styles.ChatMsgText}>{UserData?.Description}</Text>
         </View>
       </>
     );
   }; //List Chat Messages Container
 
   const AddMsg = () => {
-    if (textInput == "") {
+    if (textInput === "") {
       Alert.alert("Error al Enviar", "Escriba el Mensaje");
     } else {
       const newMsg = {

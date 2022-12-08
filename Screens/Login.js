@@ -52,7 +52,7 @@ export default function Login({ navigation }) {
   }; //Funcion de Login de Usuario
 
   return (
-    <KeyboardAvoidingView style={styles.container} behavior={"margin"}>
+    <KeyboardAvoidingView style={styles.container} behavior={Platform.OS === 'ios' ? 'padding' : 'margin'}>
       <View style={styles.TopContainer}>
         <Image source={TopImage} style={{ width: 100, height: 100 }} />
       </View>

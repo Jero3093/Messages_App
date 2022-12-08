@@ -11,17 +11,17 @@ import {
   FlatList,
 } from "react-native";
 import UserImg from "../assets/UserIMG.png";
-import * as users from "../data.json";
+import { UserData } from "../data.js";
 
 export default function HomeScreen({ navigation }) {
-  const ListMessages = () => {
+  const ListMessages = ({ UserData }) => {
     return (
       <TouchableOpacity
         style={styles.ListMessages}
         onPress={() => navigation.navigate("Chat")}
       >
         <Image
-          source={users?.img}
+          source={UserData?.img}
           style={{ width: 60, height: 60, borderRadius: 30, marginRight: 10 }}
         />
         <View style={styles.Container}>
@@ -35,7 +35,7 @@ export default function HomeScreen({ navigation }) {
               }}
               numberOfLines={1}
             >
-              {users?.name}
+              {UserData?.name}
             </Text>
             <Text
               style={{
@@ -43,13 +43,13 @@ export default function HomeScreen({ navigation }) {
                 color: "black",
               }}
             >
-              {users?.MessagesHour}
+              {UserData?.MessagesHour}
             </Text>
           </View>
           <View style={styles.DescriptionMessage}>
             <Icon name="done" size={18} />
             <Text style={{ fontSize: 15 }} numberOfLines={1}>
-              {users?.Description}
+              {UserData?.Description}
             </Text>
           </View>
         </View>
@@ -75,8 +75,10 @@ export default function HomeScreen({ navigation }) {
       <View style={styles.FlatList}>
         <FlatList
           showsVerticalScrollIndicator={false}
-          data={users?.id}
-          renderItem={({ item }) => <ListMessages messages={item} />}
+          data={UserData}
+          renderItem={({ item }) => (
+            <ListMessages UserData={item} key={item.id} />
+          )}
         />
       </View>
     </SafeAreaView>
