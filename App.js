@@ -28,7 +28,7 @@ const MyStack = () => {
         <Stack.Screen
           name="Home"
           component={Home}
-          options={{ headerBackVisible: false, headerShadowVisible: false }}
+          options={{ headerShown: false }}
         />
         <Stack.Screen name="Edit" component={EditScreen} />
         <Stack.Screen name="Settings" component={Settings} />
