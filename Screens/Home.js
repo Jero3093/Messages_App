@@ -18,7 +18,7 @@ export default function HomeScreen({ navigation }) {
     return (
       <TouchableOpacity
         style={styles.ListMessages}
-        onPress={() => navigation.navigate("Chat")}
+        onPress={() => navigation.navigate("Chat", {UserId: UserData.id})}
       >
         <Image
           source={UserData?.img}
@@ -88,15 +88,16 @@ export default function HomeScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "transparent",
+    backgroundColor: "#fff",
   },
   TopBarContainer: {
-    position: "absolute",
+    flex: 1,
     backgroundColor: "#5a86fd",
+    position: "absolute",
     top: 0,
     width: "100%",
-    height: 120,
-    flex: 1,
+    height: 160,
+    paddingTop: 50,
     justifyContent: "space-around",
     alignItems: "center",
     flexDirection: "row",

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   StyleSheet,
   Text,
@@ -10,25 +10,46 @@ import {
   TextInput,
   Alert,
 } from "react-native";
-import { Entypo } from "@expo/vector-icons";
-import { AntDesign } from "@expo/vector-icons";
+import { Entypo } from "@expo/vector-icons"; //Expo Icons
+import { AntDesign } from "@expo/vector-icons"; //Expo Icons
 import { UserData } from "../data.js"; //Users JSON
 
-export default function Chat({ navigation }) {
+export default function Chat({ route, navigation }) {
+  const { UserId } = route.params; //Serach the ID of the User from the JSON
+
+  const [User, setUser] = useState({}); //User State
+
+  useEffect(() => {
+    const unsubscribe = navigation.addListener("focus", () => {
+      getDataFromJson();
+    }); //Get the data from the JSON once
+
+    return unsubscribe;
+  }, [navigation]);
+
+  const getDataFromJson = async () => {
+    for (let index = 0; index < UserData.length; index++) {
+      if (UserData[index].id === UserId) {
+        setUser(UserData[index]);
+        return;
+      }
+    }
+  }; //Search for an specific ID then update the product states
+
   const [msg, setmsg] = useState([]); //Messages Values
 
   const [textInput, settextInput] = useState(); //Text Input Values
 
-  const TopBarContainer = ({UserData}) => {
+  const TopBarContainer = () => {
     return (
       <View style={styles.TopBarContainer}>
         <TouchableOpacity onPress={() => navigation.navigate("Home")}>
           <Entypo name="chevron-thin-left" size={35} />
         </TouchableOpacity>
         <View style={styles.TopBarContent}>
-          <Image source={UserData?.img} style={styles.TopBarImg} />
+          <Image source={User.img} style={styles.TopBarImg} />
           <Text style={{ fontSize: 25 }} numberOfLines={1}>
-            {UserData?.name}
+            {User?.name}
           </Text>
         </View>
         <View style={styles.TopBarButtons}>
@@ -46,7 +67,7 @@ export default function Chat({ navigation }) {
           <Text style={styles.ChatMsgText}>{msg?.content}</Text>
         </View>
         <View style={styles.ChatMsgOther}>
-          <Text style={styles.ChatMsgText}>{UserData?.Description}</Text>
+          <Text style={styles.ChatMsgText}>{User.Description}</Text>
         </View>
       </>
     );
